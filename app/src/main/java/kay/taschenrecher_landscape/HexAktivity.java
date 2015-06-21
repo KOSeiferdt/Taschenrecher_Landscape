@@ -1,24 +1,27 @@
 package kay.taschenrecher_landscape;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
-        import android.app.Activity;
+public class HexAktivity extends AppCompatActivity {
 
-        import android.os.Bundle;
-        import android.support.v7.app.AppCompatActivity;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.TextView;
-
-
-public class MainActivity extends AppCompatActivity {
 
     //OrientationEventListener listener;
     public TextView ausgabeTextfeld;
-    String a = "";
-    String b = "";
+    String Zahl1 = "";
+    String Zahl2 = "";
     String operator = "";
     float result = 0;
+    int i = 0;
+    String hex_string = "";
+    String hex_num ="";
+    int dec_num = 0;
+    int Basis =2;
 
     public void onClickB0(final View cmd) {
         ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "0");
@@ -60,102 +63,130 @@ public class MainActivity extends AppCompatActivity {
         ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "9");
     }
 
-    public void onClickB10(final View cmd) {
-        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "10");
+    public void onClickBA(final View cmd) {
+        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "A");
     }
 
-    public void onClickBA (final View cmd) {
-
+    public void onClickBB(final View cmd) {
+        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "B");
     }
 
-    public void onClickB11(final View cmd) {
-        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "11");
+    public void onClickBC(final View cmd) {
+        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "C");
     }
 
-    public void onClickB12(final View cmd) {
-        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "12");
+    public void onClickBD(final View cmd) {
+        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "D");
     }
 
-    public void onClickB13(final View cmd) {
-        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "13");
+    public void onClickBE(final View cmd) {
+        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "E");
     }
 
-    public void onClickB14(final View cmd) {
-        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "14");
-    }
-
-    public void onClickB15(final View cmd) {
-        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "15");
+    public void onClickBF(final View cmd) {
+        ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "F");
     }
 
 
 
     public void onClickClear(final View cmd) {
+
         ausgabeTextfeld.setText("");
     }
 
     public void onClickAdd(final View cmd) {
         operator = "add";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText("");
     }
 
     public void onClickSubstract(final View cmd) {
         operator = "substract";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText("");
     }
 
     public void onClickDivide(final View cmd) {
         operator = "divide";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText("");
     }
 
     public void onClickMultiply(final View cmd) {
         operator = "multiply";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText("");
     }
 
     public void onClickQuadX(final View cmd) {
         operator = "x²";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
-        ausgabeTextfeld.setText(String.valueOf(Float.valueOf(a)*Float.valueOf(a)));
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
+        ausgabeTextfeld.setText(String.valueOf(Float.valueOf(Zahl1)*Float.valueOf(Zahl1)));
     }
 
     public void onClickDivX(final View cmd) {
         operator = "1/X";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
-        ausgabeTextfeld.setText(String.valueOf(1 / Float.valueOf(a)));
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
+        ausgabeTextfeld.setText(String.valueOf(1 / Float.valueOf(Zahl1)));
     }
 
 
     public void onClickResult(final View cmd) {
-        b = String.valueOf(ausgabeTextfeld.getText());
+        Zahl2 = String.valueOf(ausgabeTextfeld.getText());
 
-        if (operator.equals("add")) {
-            result = Float.valueOf(a) + Float.valueOf(b);
-        } else if (operator.equals("substract")) {
-            result = Float.valueOf(a) - Float.valueOf(b);
-        } else if (operator.equals("multiply")) {
-            result = Float.valueOf(a) * Float.valueOf(b);
-        } else if (operator.equals("divide")) {
-            result = Float.valueOf(a) / Float.valueOf(b);
+        if ((Zahl1 != null) && (Zahl2 != null)) {
+
+            if (operator.equals("add")) {
+                result = Float.valueOf(Zahl1) + Float.valueOf(Zahl2);
+            } else if (operator.equals("substract")) {
+                result = Float.valueOf(Zahl1) - Float.valueOf(Zahl2);
+            } else if (operator.equals("multiply")) {
+                result = Float.valueOf(Zahl1) * Float.valueOf(Zahl2);
+            } else if (operator.equals("divide")) {
+                result = Float.valueOf(Zahl1) / Float.valueOf(Zahl2);
+            }
+            ausgabeTextfeld.setText(String.valueOf(result));
         }
-        ausgabeTextfeld.setText(String.valueOf(result));
     }
+      public void onClickListener_Hex (final View cmd) {
+/*
+          if ((Zahl1!=null) && (Zahl1.length() > 0 ))
+              Zahl1 = Integer.valueOf(Zahl1);
+
+
+            hex_num = Integer.toHexString(Zahl1);
+*/
+
+
+
+
+ for (i = 0; i < Zahl1.length(); i++) {
+            if (Zahl1.charAt(i) == '.') {
+                break;
+            } else {
+               hex_string = hex_string + Zahl1.charAt(i);
+            }
+        }
+        dec_num = Integer.parseInt(hex_string);
+
+
+        //String hex_num_string = Integer.valueOf(hex_num).toString();
+        hex_num = Integer.toHexString(dec_num);
+
+        ausgabeTextfeld.setText(hex_num);
+          //Log.d("dec_num=", dec_num.toString());
+            }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_main_landscape);
         setContentView(R.layout.layout_basic);
         if(ausgabeTextfeld == null) ausgabeTextfeld = (TextView)findViewById(R.id.txtausgabe2);
 
@@ -192,12 +223,13 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.hex) {
             setContentView(R.layout.layout_hex);
+            Intent k = new Intent(this, HexAktivity.class);
+            startActivity(k);
         }
         if (id == R.id.dez) {
             setContentView(R.layout.layout_basic);
         }
-      /*
-        if (id == R.id.okt) {
+      /*  if (id == R.id.okt) {
             setContentView(R.layout.layout_okt);
         }
         if (id == R.id.dual) {
@@ -206,8 +238,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-   /*private void changeOrientation() {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }*/
+    /*private void changeOrientation() {
+         Intent i = new Intent(this, MainActivity.class);
+         startActivity(i);
+     }*/
+
 }
