@@ -87,8 +87,6 @@ public class HexAktivity extends AppCompatActivity {
         ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "F");
     }
 
-
-
     public void onClickClear(final View cmd) {
 
         ausgabeTextfeld.setText("");
@@ -135,7 +133,6 @@ public class HexAktivity extends AppCompatActivity {
         Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText(String.valueOf(1 / Float.valueOf(Zahl1)));
     }
-
 
     public void onClickResult(final View cmd) {
         Zahl2 = String.valueOf(ausgabeTextfeld.getText());
@@ -187,7 +184,7 @@ public class HexAktivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_basic);
+        setContentView(R.layout.layout_hex);
         if(ausgabeTextfeld == null) ausgabeTextfeld = (TextView)findViewById(R.id.txtausgabe2);
 
 //        listener = new OrientationEventListener(this, SensorManager.SENSOR_DELAY_FASTEST) {
@@ -223,9 +220,7 @@ public class HexAktivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.hex) {
             setContentView(R.layout.layout_hex);
-            Intent k = new Intent(this, HexAktivity.class);
-            startActivity(k);
-        }
+                    }
         if (id == R.id.dez) {
             setContentView(R.layout.layout_basic);
         }

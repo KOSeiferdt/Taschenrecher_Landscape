@@ -1,8 +1,7 @@
 package kay.taschenrecher_landscape;
 
 
-        import android.app.Activity;
-
+        import android.content.Intent;
         import android.os.Bundle;
         import android.support.v7.app.AppCompatActivity;
         import android.view.Menu;
@@ -15,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     //OrientationEventListener listener;
     public TextView ausgabeTextfeld;
-    String a = "";
-    String b = "";
+    String Zahl1 = "";
+    String Zahl2 = "";
     String operator = "";
     float result = 0;
 
@@ -64,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
         ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "10");
     }
 
-    public void onClickBA (final View cmd) {
-
-    }
-
     public void onClickB11(final View cmd) {
         ausgabeTextfeld.setText(ausgabeTextfeld.getText() + "11");
     }
@@ -97,57 +92,57 @@ public class MainActivity extends AppCompatActivity {
     public void onClickAdd(final View cmd) {
         operator = "add";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText("");
     }
 
     public void onClickSubstract(final View cmd) {
         operator = "substract";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText("");
     }
 
     public void onClickDivide(final View cmd) {
         operator = "divide";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText("");
     }
 
     public void onClickMultiply(final View cmd) {
         operator = "multiply";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
         ausgabeTextfeld.setText("");
     }
 
     public void onClickQuadX(final View cmd) {
         operator = "x²";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
-        ausgabeTextfeld.setText(String.valueOf(Float.valueOf(a)*Float.valueOf(a)));
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
+        ausgabeTextfeld.setText(String.valueOf(Float.valueOf(Zahl1)*Float.valueOf(Zahl1)));
     }
 
     public void onClickDivX(final View cmd) {
         operator = "1/X";
         ausgabeTextfeld.setText(ausgabeTextfeld.getText());
-        a = String.valueOf(ausgabeTextfeld.getText());
-        ausgabeTextfeld.setText(String.valueOf(1 / Float.valueOf(a)));
+        Zahl1 = String.valueOf(ausgabeTextfeld.getText());
+        ausgabeTextfeld.setText(String.valueOf(1 / Float.valueOf(Zahl1)));
     }
 
 
     public void onClickResult(final View cmd) {
-        b = String.valueOf(ausgabeTextfeld.getText());
+        Zahl2 = String.valueOf(ausgabeTextfeld.getText());
 
         if (operator.equals("add")) {
-            result = Float.valueOf(a) + Float.valueOf(b);
+            result = Float.valueOf(Zahl1) + Float.valueOf(Zahl2);
         } else if (operator.equals("substract")) {
-            result = Float.valueOf(a) - Float.valueOf(b);
+            result = Float.valueOf(Zahl1) - Float.valueOf(Zahl2);
         } else if (operator.equals("multiply")) {
-            result = Float.valueOf(a) * Float.valueOf(b);
+            result = Float.valueOf(Zahl1) * Float.valueOf(Zahl2);
         } else if (operator.equals("divide")) {
-            result = Float.valueOf(a) / Float.valueOf(b);
+            result = Float.valueOf(Zahl1) / Float.valueOf(Zahl2);
         }
         ausgabeTextfeld.setText(String.valueOf(result));
     }
@@ -192,7 +187,10 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.hex) {
             setContentView(R.layout.layout_hex);
+            Intent k = new Intent(this, HexAktivity.class);
+            startActivity(k);
         }
+
         if (id == R.id.dez) {
             setContentView(R.layout.layout_basic);
         }
