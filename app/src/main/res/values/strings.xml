@@ -33,7 +33,7 @@
     <string name="BMultiply">*</string>
     <string name="B1X">1/X</string>
     <string name="BX2">x²</string>
-    <string name="BResult">=</string>
+    <string name="BResult"> = </string>
 
 
 

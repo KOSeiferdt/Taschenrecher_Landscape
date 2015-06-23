@@ -168,8 +168,9 @@
             android:text="@string/BResult"
             android:id="@+id/button20"
             android:res="@+id/button15"
-            android:layout_alignStart="@+id/button16"
-            android:onClick="onClickResult"/>
+            android:onClick="onClickResult"
+            android:layout_below="@+id/button15"
+            android:layout_toStartOf="@+id/button15" />
 
         <Button
             android:layout_width="wrap_content"
