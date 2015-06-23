@@ -157,7 +157,7 @@ public class HexAktivity extends AppCompatActivity {
               Zahl1 = Integer.valueOf(Zahl1);
 
 
-            hex_num = Integer.toHexString(Zahl1);
+            hex_num = Integer.toHexStringe(Zahl1);
 */
 
 

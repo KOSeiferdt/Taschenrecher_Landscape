@@ -3,4 +3,38 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="txtausgabe2"></string>
+    <string name="B0">0</string>
+    <string name="B1">1</string>
+    <string name="B2">2</string>
+    <string name="B3">3</string>
+    <string name="B4">4</string>
+    <string name="B5">5</string>
+    <string name="B6">6</string>
+    <string name="B7">7</string>
+    <string name="B8">8</string>
+    <string name="B9">9</string>
+    <string name="B10">10</string>
+    <string name="BA">A</string>
+    <string name="B11">11</string>
+    <string name="BB">B</string>
+    <string name="B12">12</string>
+    <string name="BC">C</string>
+    <string name="B13">13</string>
+    <string name="BD">D</string>
+    <string name="B14">14</string>
+    <string name="BE">E</string>
+    <string name="B15">15</string>
+    <string name="BF">F</string>
+    <string name="BClear">C</string>
+    <string name="BAdd">+</string>
+    <string name="BSubstract">-</string>
+    <string name="BDivide">/</string>
+    <string name="BMultiply">*</string>
+    <string name="B1X">1/X</string>
+    <string name="BX2">x²</string>
+    <string name="BResult">=</string>
+
+
+
 </resources>
